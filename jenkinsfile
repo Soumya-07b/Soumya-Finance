@@ -39,7 +39,7 @@ pipeline{
         stage('Docker Login Credenials'){
           steps{
               withCredentials([usernamePassword(credentialsId: 'dockeruserid', passwordVariable: 'dockerhubuserpw', usernameVariable: 'dockerhubusername')]) {
-    // some block
+
 
                sh "docker login -u ${dockerhubusername} -p ${dockerhubuserpw}"
               }
@@ -47,9 +47,14 @@ pipeline{
          }
         stage('port expose'){
             steps{
-                   sh 'docker run -dt -p 8077:8091 karthik854/myimg'
+                   sh 'docker run -dt -p 8078:8091 karthik854/myimg'
             }
         } 
+        steps {
+     ansible-playbook.yml', vaultTmpPath: ''
+		ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'Ansible2',inventory: '/etc/ansible/hosts', playbook: 'ansible-playbook.yml', vaultTmpPath: ''
+            }
+      }
     
     }
 }
