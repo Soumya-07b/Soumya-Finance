@@ -48,7 +48,7 @@ pipeline{
          }
         stage('port expose'){
             steps{
-                   sh 'docker run -itd -p 8084:8081 karthik854/financeme:latest'
+                   sh 'docker run -itd -p 8085:8081 karthik854/financeme:latest'
             }
         } 
 
