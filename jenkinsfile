@@ -33,7 +33,7 @@ pipeline{
         }
         stage('Build Docker image'){
           steps{
-               sh 'docker build -t docker build -t karthik854/finance-me:1.0 .
+               sh 'docker build -t karthik854/finance-me:1.0 .'
 '
            }
          }
@@ -48,9 +48,7 @@ pipeline{
          }
         stage('port expose'){
             steps{
-                   sh 'docker run -dt -p 8064:8091 karthik854/myimg1'
-                   docker run -d -p 8080:8080 --name finance-me karthik854/finance-me:1.0
-
+                   sh 'docker run -itd -p 8084:8081 karthik854/finance-me:1.0'
             }
         } 
 
