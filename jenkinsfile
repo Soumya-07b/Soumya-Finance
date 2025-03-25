@@ -47,7 +47,7 @@ pipeline{
          }
         stage('port expose'){
             steps{
-                   sh 'docker run -dt -p 8079:8091 karthik854/myimg'
+                   sh 'docker run -dt -p 8069:8091 karthik854/myimg'
             }
         } 
           stage('Deploy Application using Ansible') {
