@@ -40,8 +40,6 @@ pipeline{
         stage('Docker Login Credenials'){
           steps{
               withCredentials([usernamePassword(credentialsId: 'dockeruserid', passwordVariable: 'dockerhubuserpw', usernameVariable: 'dockerhubusername')]) {
-
-
                sh "docker login -u ${dockerhubusername} -p ${dockerhubuserpw}"
               }
            }
