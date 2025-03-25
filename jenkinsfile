@@ -33,7 +33,7 @@ pipeline{
         }
         stage('Build Docker image'){
           steps{
-               sh 'docker build -t karthik854/myimg .'
+               sh 'docker build -t karthik854/myimg1 .'
            }
          }
         stage('Docker Login Credenials'){
@@ -47,14 +47,10 @@ pipeline{
          }
         stage('port expose'){
             steps{
-                   sh 'docker run -dt -p 8070:8091 karthik854/myimg'
+                   sh 'docker run -dt -p 8071:8091 karthik854/myimg1'
             }
         } 
-          stage('Deploy Application using Ansible') {
-         steps {
-		ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'Ansible2',inventory: '/etc/ansible/hosts', playbook: 'ansible-playbook.yml', vaultTmpPath: ''
-            }
-      }
+          
       }
     
     
